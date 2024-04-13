@@ -1,0 +1,32 @@
+---
+- name: Create user and directory
+  hosts: allhosts
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Create user "{{ username }}" and add to docker group
+      ansible.builtin.user:
+        name: "{{ username }}"
+        groups: docker
+        append: yes
+        create_home: yes
+
+    - name: Create directory "{{ root_dir }}"
+      ansible.builtin.file:
+        path: "{{ root_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Set ownership of "{{ root_dir }}" to "{{ username }}"
+      ansible.builtin.file:
+        path: "{{ root_dir }}"
+        owner: "{{ username }}"
+        group: "{{ username }}"
+        state: directory
+        
+    - name: install required packages
+      ansible.builtin.apt:
+        pkg:
+        - acl
+        state: present
+
