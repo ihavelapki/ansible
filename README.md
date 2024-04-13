@@ -3,7 +3,8 @@
 
 
 * [Playbooks](https://github.com/ihavelapki/ansible/tree/main/playbooks)
-	* [Adduser](https://github.com/ihavelapki/ansible/blob/main/playbooks/adduser.yml)
+	* [Add user](https://github.com/ihavelapki/ansible/blob/main/playbooks/adduser.yml)
+	* [Install docker](https://github.com/ihavelapki/ansible/blob/main/playbooks/install_docker.yml)
 * [Run commands](#run_commands)
 
 
