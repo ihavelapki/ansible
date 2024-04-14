@@ -1,6 +1,6 @@
 ---
 - name: Install Docker
-  hosts: all_hosts
+  hosts: allhosts
   become: yes
   become_method: sudo
   tasks:
